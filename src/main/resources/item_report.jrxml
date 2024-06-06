@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="item_report" pageWidth="595" pageHeight="842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="20" bottomMargin="20" uuid="e1a03f75-85c7-45e8-a92c-6b16e73558f5">
+
+    <!-- Query defining the data source (optional if using Java data source) -->
+    <queryString>
+        <![CDATA[SELECT id, name, quantity FROM Items]]>
+    </queryString>
+
+    <!-- Fields mapping the query results -->
+    <field name="id" class="java.lang.Integer"/>
+    <field name="name" class="java.lang.String"/>
+    <field name="quantity" class="java.lang.Integer"/>
+
+    <!-- Title band -->
+    <title>
+        <band height="50">
+            <staticText>
+                <reportElement x="0" y="0" width="515" height="30" uuid="1a02963b-682b-4c09-9089-c4f8d6f4f5a2"/>
+                <textElement textAlignment="Center">
+                    <font size="20" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Items Report]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <!-- Column headers -->
+    <columnHeader>
+        <band height="20">
+            <staticText>
+                <reportElement x="0" y="0" width="50" height="20" uuid="2a5d26c8-ec2e-49f7-8d07-03e4a0d0e2f7"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="50" y="0" width="250" height="20" uuid="1e02687b-4d15-4c78-88d6-56c686e650df"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="300" y="0" width="215" height="20" uuid="68fc72c9-fc62-4b6c-b6b8-dc92b14432e8"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Quantity]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <!-- Detail band -->
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="50" height="20" uuid="c17d7a8b-3d15-4f02-b6fc-59d42d26c7d8"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="0" width="250" height="20" uuid="85c137d3-f72d-45da-b41e-3a0b5c02eefd"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="300" y="0" width="215" height="20" uuid="5e10f223-ec2e-45f0-bbb5-1c6c2e15a1fc"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <!-- Page footer -->
+    <pageFooter>
+        <band height="20">
+            <staticText>
+                <reportElement x="0" y="0" width="515" height="20" uuid="8c7e3d97-8c8a-4c4e-9f0f-786abc248d1b"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Page ]]></text>
+            </staticText>
+            <textField pattern="###">
+                <reportElement x="40" y="0" width="50" height="20" uuid="2b1c07b7-15a8-4e2c-bf55-d5388f4b06f4"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+</jasperReport>
